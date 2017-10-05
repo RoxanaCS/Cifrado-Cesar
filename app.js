@@ -60,25 +60,23 @@ del caracter corrido en 33 espacios a la derecha en la tabla ASCII */
   var validLetter;
   var code;
   console.log(sentence3)
-    for (var i=0; i< sentence3.length; i++){ //Obtener la posición ASCII del caracter
-      code = sentence3.charCodeAt(i);
-/*        validLetter = 65;
-        console.log("es mayuscula")
-      } else {
-        validLetter =97;
-      }*/
-      code1=code; // Guarda valor de la letra codificada
-      code = code - (33 % 26);  /* aplicar fórmula para obtener la posición
+  for (var i=0; i< sentence3.length; i++){ //Obtener la posición ASCII del caracter
+    code = sentence3.charCodeAt(i);
+      code1=code; // Guarda valor de la letra codificada por si acaso es "a"
+      code = code - (33 % 26);  /* aplica fórmula para obtener la posición
       del caracter corrido en 33 espacios a la izquierda en la tabla ASCII */
-      if((code<65)||(code < 97 && code > 90  ) || code1===97){// compara si el valor decodificado es menor a 65 ("A") entonces suma 26 para dar la vuelta completa, si el valor es menor que 97 ("a") y mayor que 90 ("Z")
-        code=code+26;
+      if((code<65)||(code < 97 && code > 90 ) || code1===97){   /* compara si el valor decodificado es menor
+         a 65 ("A") o si el valor es menor que 97 ("a") y mayor
+         que 90 ("Z") o si el valor es exactamente 97 ("a") entonces suma 26 para dar la vuelta completa.
+         Este paso es para obtener solo letras independientemente si la entrada es mayúscula o minúscula*/
+      code=code+26;
       }
-  arrayPosition.push(String.fromCharCode(code));  //usar la posición para obtener qué letra corresponde y guardar las letras en un array
-    newString= arrayPosition.join(""); //convertir a string el array
+      arrayPosition.push(String.fromCharCode(code));  //usar la posición para obtener qué letra corresponde y guardar las letras en un array
+      newString= arrayPosition.join(""); //convertir a string el array
 
     }
     return alert (newString);
 
-    }
+  }
 
-    initial();   //llamar a la función que da inicio a todo el proceso
+  initial();   //llamar a la función que da inicio a todo el proceso
